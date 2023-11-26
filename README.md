@@ -49,3 +49,5 @@ This project was developed by Liess Pereira Aouimeur (up202206296@up.pt), Rodrig
 “Choose speed of the game”: in the level creation menu, in the speed selection area, select the speed of the game using the up and down keys;
 
 
+#Self-evaluation
+All members contributed an equal share to the work. We worked together so it is not possible to differentiate who did what.
