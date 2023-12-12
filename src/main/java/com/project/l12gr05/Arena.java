@@ -78,11 +78,9 @@ public class Arena {
         return walls;
     }
     public boolean verifyCollisions(){
-        for(Wall wall : walls){
-            if(walls.contains(new Wall(snake.getPosition().getX(), snake.getPosition().getY()))){
-                System.out.println("GAME OVER");
-                return true;
-            }
+        if(walls.contains(new Wall(snake.getPosition().getX(), snake.getPosition().getY()))){
+            System.out.println("GAME OVER");
+            return true;
         }
         return false;
     }
