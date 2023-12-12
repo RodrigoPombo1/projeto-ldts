@@ -1,6 +1,5 @@
 package com.project.l12gr05;
 
-import com.googlecode.lanterna.SGR;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -14,7 +13,9 @@ public class Arena {
     private int width;
     private int height;
     private Snake snake;
-    private List<SnakeBodyPart> SnakeBodyParts;
+
+    private List<Teleporter> teleporters;
+    private List<SnakeBodyPart> snakeBodyParts;
     private List<Wall> walls;
     private List<Fruit> fruits;
     private int score = 0;
@@ -23,9 +24,10 @@ public class Arena {
         this.width = width;
         this.height = height;
         snake = new Snake(20, 10);
-        SnakeBodyParts = createSnakeBodyParts();
+        snakeBodyParts = createSnakeBodyParts();
         walls = createWalls();
         fruits = createFruits();
+        teleporters = createTeleporters();
     }
 
     public int getHeight() {
@@ -41,10 +43,11 @@ public class Arena {
         screen.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
 
         snake.draw(screen);
-
+        for (Teleporter teleporter : teleporters)
+            teleporter.draw(screen);
         for (Wall wall : walls)
             wall.draw(screen);
-        for (SnakeBodyPart snakeBodyPart : SnakeBodyParts) {
+        for (SnakeBodyPart snakeBodyPart : snakeBodyParts) {
             snakeBodyPart.draw(screen);
         }
         for(Fruit fruit : fruits)
@@ -68,25 +71,32 @@ public class Arena {
 //        }
     }
 
+    public List<Teleporter> createTeleporters() {
+        teleporters = new ArrayList<>();
+        teleporters.add(new Teleporter(10,5));
+        teleporters.add(new Teleporter(30, 15));
+        return teleporters;
+    }
+
     public void updateSnakeNewBodyParts(Position position_to_add, boolean wasFruitCollected) {
         List<SnakeBodyPart> aux = new ArrayList<>();
         aux.add(new SnakeBodyPart(position_to_add.getX(), position_to_add.getY()));
         if (!wasFruitCollected) {
-            for (int i = 0; i < SnakeBodyParts.size() - 1; i++) {
-                aux.add(SnakeBodyParts.get(i));
+            for (int i = 0; i < snakeBodyParts.size() - 1; i++) {
+                aux.add(snakeBodyParts.get(i));
             }
-            SnakeBodyParts = aux;
+            snakeBodyParts = aux;
             return;
         }
-        for (int i = 0; i < SnakeBodyParts.size(); i++) {
-            aux.add(SnakeBodyParts.get(i));
+        for (int i = 0; i < snakeBodyParts.size(); i++) {
+            aux.add(snakeBodyParts.get(i));
         }
-        SnakeBodyParts = aux;
+        snakeBodyParts = aux;
         return;
     }
 
     public boolean verifySnakeBodyCollisions() {
-        return SnakeBodyParts.contains(new SnakeBodyPart(snake.getPosition().getX(), snake.getPosition().getY()));
+        return snakeBodyParts.contains(new SnakeBodyPart(snake.getPosition().getX(), snake.getPosition().getY()));
     }
 
     public boolean canSnakeMove(Position position) {
