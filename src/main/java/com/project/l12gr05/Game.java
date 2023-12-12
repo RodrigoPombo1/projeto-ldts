@@ -1,7 +1,6 @@
 package com.project.l12gr05;
 
 import com.googlecode.lanterna.TerminalSize;
-import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
@@ -66,7 +65,7 @@ public class Game {
                 processKey(key);
                 if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') screen.close();
                 if (key.getKeyType() == KeyType.EOF) break;
-                if(arena.verifyCollisions()){
+                if(arena.verifyWallCollisions()){
                     screen.close();
                     break;
                 }

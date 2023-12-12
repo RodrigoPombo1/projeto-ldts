@@ -6,7 +6,6 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -77,7 +76,7 @@ public class Arena {
         }
         return walls;
     }
-    public boolean verifyCollisions(){
+    public boolean verifyWallCollisions(){
         if(walls.contains(new Wall(snake.getPosition().getX(), snake.getPosition().getY()))){
             System.out.println("GAME OVER");
             return true;
