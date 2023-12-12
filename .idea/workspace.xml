@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="edf1d8ca-2b43-4894-8817-3a8e4675fde4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Arena.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +63,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/Admin/Documents/GitHub/project-l12gr05/src/main/java/com/project/l12gr05/Main.java",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,6 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1701004221908</updated>
       <workItem from="1702390967286" duration="12522000" />
+      <workItem from="1702404530189" duration="10006000" />
     </task>
     <servers />
   </component>

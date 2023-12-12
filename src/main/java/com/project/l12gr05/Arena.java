@@ -17,7 +17,7 @@ public class Arena {
     private List<SnakeBodyPart> SnakeBodyParts;
     private List<Wall> walls;
     private List<Fruit> fruits;
-    private int length = 3; //length of the snake, will be implemented with growth
+    private int score = 0;
 
     Arena(int width, int height) {
         this.width = width;
@@ -128,7 +128,7 @@ public class Arena {
         }
         return walls;
     }
-    public boolean verifyWallCollisions(){
+    public boolean verifyWallCollisions() {
         return walls.contains(new Wall(snake.getPosition().getX(), snake.getPosition().getY()));
     }
 
@@ -143,7 +143,7 @@ public class Arena {
         for(Fruit fruit : fruits){
             if(snake.getPosition().equals(fruit.getPosition())) {
                 fruits.remove(fruit);
-                length++;
+                score++;
                 return true;
             }
         }
