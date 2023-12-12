@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="edf1d8ca-2b43-4894-8817-3a8e4675fde4" name="Changes" comment="" />
+    <list default="true" id="edf1d8ca-2b43-4894-8817-3a8e4675fde4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Game.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,6 +64,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/Admin/Documents/GitHub/project-l12gr05/src/main/java/com/project/l12gr05/Main.java",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -72,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1701004221908</updated>
-      <workItem from="1702390967286" duration="6758000" />
+      <workItem from="1702390967286" duration="10833000" />
     </task>
     <servers />
   </component>

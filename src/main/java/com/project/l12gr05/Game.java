@@ -63,13 +63,29 @@ public class Game {
                 draw();
                 KeyStroke key = screen.readInput();
                 processKey(key);
-                if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') screen.close();
-                if (key.getKeyType() == KeyType.EOF) break;
-                if(arena.verifyWallCollisions()){
+
+                // verify collisions after movement
+                if(arena.verifyWallCollisions()) {
                     screen.close();
                     break;
                 }
+//                if(arena.verifyMonsterCollisions()) {
+//                    screen.close();
+//                    break;
+//                }
+//                if(arena.verifySnakeBodyCollisions()) {
+//                    screen.close();
+//                    break;
+//                }
 
+                if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') screen.close();
+                if (key.getKeyType() == KeyType.EOF) break;
+
+//                arena.moveMonsters();
+//                if(arena.verifyMonsterCollisions()){
+//                    screen.close();
+//                    break;
+//                }
             }
         } catch (IOException e) {
             e.printStackTrace();
