@@ -14,6 +14,7 @@ public class Arena {
     private int width;
     private int height;
     private Snake snake;
+    private List<SnakeBodyPart> SnakeBodyParts;
     private List<Wall> walls;
     private List<Fruit> fruits;
     private int length = 3; //length of the snake, will be implemented with growth
@@ -22,6 +23,7 @@ public class Arena {
         this.width = width;
         this.height = height;
         snake = new Snake(10, 10);
+        SnakeBodyParts = createSnakeBodyParts();
         walls = createWalls();
         fruits = createFruits();
     }
@@ -42,6 +44,9 @@ public class Arena {
 
         for (Wall wall : walls)
             wall.draw(screen);
+        for (SnakeBodyPart snakeBodyPart : SnakeBodyParts) {
+            snakeBodyPart.draw(screen);
+        }
         for(Fruit fruit : fruits)
             fruit.draw(screen);
     }
@@ -55,14 +60,28 @@ public class Arena {
         return (position.getX() >= 0 && position.getX() <= width) && (position.getY() >= 0 && position.getY() <= height);
     }
 
-    public Position moveUp() {return new Position(snake.getPosition().getX(), snake.getPosition().getY() - 1);}
+    public List<SnakeBodyPart> createSnakeBodyParts() {
+        List<SnakeBodyPart> res = new ArrayList<>();
+        int number_of_starting_body_parts = 2;
+        Position snake_position = snake.getPosition();
+        for (int i = 0; i < number_of_starting_body_parts; i++) {
+            res.add(new SnakeBodyPart(snake_position.getX() + 1 + i, snake_position.getY()));
+        }
+        return res;
+    }
+
+    public Position moveUp() {
+        return new Position(snake.getPosition().getX(), snake.getPosition().getY() - 1);
+    }
     public Position moveDown() {
         return new Position(snake.getPosition().getX(), snake.getPosition().getY() + 1);
     }
     public Position moveLeft() {
         return new Position(snake.getPosition().getX()  - 1, snake.getPosition().getY());
     }
-    public Position moveRight() {return new Position(snake.getPosition().getX()  + 1, snake.getPosition().getY());}
+    public Position moveRight() {
+        return new Position(snake.getPosition().getX()  + 1, snake.getPosition().getY());
+    }
 
     private List<Wall> createWalls() {
         List<Wall> walls = new ArrayList<>();

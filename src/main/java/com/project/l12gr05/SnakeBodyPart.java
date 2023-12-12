@@ -19,6 +19,6 @@ public class SnakeBodyPart extends Element {
     @Override
     public boolean equals(Object o){
         if(o == null || this.getClass() != o.getClass()) return false;
-        return(this == o || this.getPosition().equals(((Wall) o).getPosition()));
+        return(this == o || this.getPosition().equals(((SnakeBodyPart) o).getPosition()));
     }
 }
