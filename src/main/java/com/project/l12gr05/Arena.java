@@ -59,8 +59,17 @@ public class Arena {
         boolean was_position_changed = false;
         if (canSnakeMove(position)) {
             was_position_changed = true;
-            // need to implement tp check for snake here
-            snake.setPosition(position);
+            // teleporter check for snake here
+            if (verifyTeleporterCollisions(position)) {
+                for (Teleporter teleporter : teleporters) {
+                    if (teleporter.getPosition().equals(position)) {
+                        snake.setPosition(getTeleporterDestination(teleporter, initial_snake_position));
+                        break;
+                    }
+                }
+            } else {
+                snake.setPosition(position);
+            }
         }
         boolean wasFruitCollected = collectFruit();
         if (was_position_changed) {
@@ -76,6 +85,34 @@ public class Arena {
         teleporters.add(new Teleporter(10,5));
         teleporters.add(new Teleporter(30, 15));
         return teleporters;
+    }
+
+    public boolean verifyTeleporterCollisions(Position Element_position) {
+        for (Teleporter teleporter : teleporters) {
+            if (teleporter.getPosition().equals(Element_position)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Teleporter getOtherTeleporter(Teleporter teleporter) {
+        for (Teleporter other_teleporter : teleporters) {
+            if (!other_teleporter.equals(teleporter)) {
+                return other_teleporter;
+            }
+        }
+        return null;
+    }
+
+    public Position getTeleporterDestination(Teleporter teleporter, Position initial_element_position) {
+        Teleporter destinationTeleporter = getOtherTeleporter(teleporter);
+        Position destinationTeleporterPosition = destinationTeleporter.getPosition();
+        Position initialTeleporterPosition = teleporter.getPosition();
+        int x_difference = initialTeleporterPosition.getX() - initial_element_position.getX();
+        int y_difference = initialTeleporterPosition.getY() - initial_element_position.getY();
+        return new Position(destinationTeleporterPosition.getX() + x_difference,
+                destinationTeleporterPosition.getY() + y_difference);
     }
 
     public void updateSnakeNewBodyParts(Position position_to_add, boolean wasFruitCollected) {
