@@ -18,7 +18,7 @@ public class Arena {
     private List<Fruit> fruits;
     private int length = 3; //length of the snake, will be implemented with growth
 
-    public Arena(int width, int height) {
+    Arena(int width, int height) {
         this.width = width;
         this.height = height;
         snake = new Snake(10, 10);
@@ -98,18 +98,6 @@ public class Arena {
                 length++;
                 break;
             }
-        }
-    }
-
-    private class Snake extends Element{
-        private Snake(int x, int y) {
-            super(x,y);
-        }
-
-        public void draw(TextGraphics screen){
-            screen.setForegroundColor(TextColor.Factory.fromString("#000000"));
-            screen.enableModifiers(SGR.BOLD);
-            screen.putString(new TerminalPosition(getPosition().getX(), getPosition().getY()), "X");
         }
     }
 }
