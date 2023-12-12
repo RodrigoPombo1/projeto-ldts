@@ -22,7 +22,7 @@ public class Arena {
     Arena(int width, int height) {
         this.width = width;
         this.height = height;
-        snake = new Snake(10, 10);
+        snake = new Snake(20, 10);
         SnakeBodyParts = createSnakeBodyParts();
         walls = createWalls();
         fruits = createFruits();
