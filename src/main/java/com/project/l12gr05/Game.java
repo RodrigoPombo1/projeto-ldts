@@ -16,14 +16,23 @@ public class Game {
     private Arena arena;
 
     private void processKey(KeyStroke key) {
-        if (key.getKeyType() == KeyType.ArrowUp) arena.moveSnake(arena.moveUp());
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'w') arena.moveSnake(arena.moveUp());
-        if (key.getKeyType() == KeyType.ArrowDown) arena.moveSnake(arena.moveDown());
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 's') arena.moveSnake(arena.moveDown());
-        if (key.getKeyType() == KeyType.ArrowRight) arena.moveSnake(arena.moveRight());
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'd') arena.moveSnake(arena.moveRight());
-        if (key.getKeyType() == KeyType.ArrowLeft) arena.moveSnake(arena.moveLeft());
-        if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'a') arena.moveSnake(arena.moveLeft());
+        KeyType key_keytype = key.getKeyType();
+        if (key_keytype == KeyType.Character) {
+            switch(key.getCharacter()) {
+                case 'w' -> arena.moveSnake(arena.moveUp());
+                case 's' -> arena.moveSnake(arena.moveDown());
+                case 'd' -> arena.moveSnake(arena.moveRight());
+                case 'a' -> arena.moveSnake(arena.moveLeft());
+            }
+        }
+        else {
+            switch (key_keytype) {
+                case ArrowUp -> arena.moveSnake(arena.moveUp());
+                case ArrowDown -> arena.moveSnake(arena.moveDown());
+                case ArrowRight -> arena.moveSnake(arena.moveRight());
+                case ArrowLeft -> arena.moveSnake(arena.moveLeft());
+            }
+        }
     }
 
 
