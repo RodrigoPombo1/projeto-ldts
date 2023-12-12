@@ -52,8 +52,37 @@ public class Arena {
     }
 
     public void moveSnake(Position position) {
-        if (canSnakeMove(position)) snake.setPosition(position);
-        collectFruit();
+        Position initial_snake_position = snake.getPosition();
+        boolean was_position_changed = false;
+        if (canSnakeMove(position)) {
+            was_position_changed = true;
+            // need to implement tp check for snake here
+            snake.setPosition(position);
+        }
+        boolean wasFruitCollected = collectFruit();
+        if (was_position_changed) {
+            updateSnakeNewBodyParts(initial_snake_position, wasFruitCollected);
+        }
+//        if (wasFruitCollected) {
+//            fruits.addNewFruit();
+//        }
+    }
+
+    public void updateSnakeNewBodyParts(Position position_to_add, boolean wasFruitCollected) {
+        List<SnakeBodyPart> aux = new ArrayList<>();
+        aux.add(new SnakeBodyPart(position_to_add.getX(), position_to_add.getY()));
+        if (!wasFruitCollected) {
+            for (int i = 0; i < SnakeBodyParts.size() - 1; i++) {
+                aux.add(SnakeBodyParts.get(i));
+            }
+            SnakeBodyParts = aux;
+            return;
+        }
+        for (int i = 0; i < SnakeBodyParts.size(); i++) {
+            aux.add(SnakeBodyParts.get(i));
+        }
+        SnakeBodyParts = aux;
+        return;
     }
 
     public boolean canSnakeMove(Position position) {
@@ -97,7 +126,6 @@ public class Arena {
     }
     public boolean verifyWallCollisions(){
         if(walls.contains(new Wall(snake.getPosition().getX(), snake.getPosition().getY()))){
-            System.out.println("GAME OVER");
             return true;
         }
         return false;
@@ -110,13 +138,14 @@ public class Arena {
             fruits.add(new Fruit(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1));
         return fruits;
     }
-    private void collectFruit(){
+    private boolean collectFruit(){
         for(Fruit fruit : fruits){
             if(snake.getPosition().equals(fruit.getPosition())) {
                 fruits.remove(fruit);
                 length++;
-                break;
+                return true;
             }
         }
+        return false;
     }
 }
