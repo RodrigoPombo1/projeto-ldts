@@ -85,6 +85,10 @@ public class Arena {
         return;
     }
 
+    public boolean verifySnakeBodyCollisions() {
+        return SnakeBodyParts.contains(new SnakeBodyPart(snake.getPosition().getX(), snake.getPosition().getY()));
+    }
+
     public boolean canSnakeMove(Position position) {
         return (position.getX() >= 0 && position.getX() <= width) && (position.getY() >= 0 && position.getY() <= height);
     }
@@ -125,10 +129,7 @@ public class Arena {
         return walls;
     }
     public boolean verifyWallCollisions(){
-        if(walls.contains(new Wall(snake.getPosition().getX(), snake.getPosition().getY()))){
-            return true;
-        }
-        return false;
+        return walls.contains(new Wall(snake.getPosition().getX(), snake.getPosition().getY()));
     }
 
     private List<Fruit> createFruits() {

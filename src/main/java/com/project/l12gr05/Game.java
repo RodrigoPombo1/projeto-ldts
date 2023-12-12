@@ -73,10 +73,10 @@ public class Game {
 //                    screen.close();
 //                    break;
 //                }
-//                if(arena.verifySnakeBodyCollisions()) {
-//                    screen.close();
-//                    break;
-//                }
+                if(arena.verifySnakeBodyCollisions()) {
+                    screen.close();
+                    break;
+                }
 
                 if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') screen.close();
                 if (key.getKeyType() == KeyType.EOF) break;
