@@ -21,21 +21,13 @@ public class Monster extends Element {
         Position monster_position = this.getPosition();
         Random random = new Random();
         int direction = random.nextInt(4);
-        Position new_position = null;
-        switch (direction) {
-            case 0:
-                new_position = new Position(monster_position.getX(), monster_position.getY() - 1);
-                break;
-            case 1:
-                new_position = new Position(monster_position.getX(), monster_position.getY() + 1);
-                break;
-            case 2:
-                new_position = new Position(monster_position.getX() - 1, monster_position.getY());
-                break;
-            case 3:
-                new_position = new Position(monster_position.getX() + 1, monster_position.getY());
-                break;
-        }
+        Position new_position = switch (direction) {
+            case 0 -> new Position(monster_position.getX(), monster_position.getY() - 1);
+            case 1 -> new Position(monster_position.getX(), monster_position.getY() + 1);
+            case 2 -> new Position(monster_position.getX() - 1, monster_position.getY());
+            case 3 -> new Position(monster_position.getX() + 1, monster_position.getY());
+            default -> null;
+        };
         return new_position;
     }
 
