@@ -18,6 +18,8 @@ public class Arena {
     private List<SnakeBodyPart> snakeBodyParts;
     private List<Wall> walls;
     private List<Fruit> fruits = new ArrayList<>();
+
+//    private List<Monster> monsters;
     private int score = 0;
 
     Arena(int width, int height) {
@@ -28,6 +30,7 @@ public class Arena {
         walls = createWalls();
         teleporters = createTeleporters();
         createFruits();
+//        monsters = createMonsters();
     }
 
     public int getHeight() {
@@ -52,6 +55,9 @@ public class Arena {
         }
         for(Fruit fruit : fruits)
             fruit.draw(screen);
+//        for (Monster monster : monsters) {
+//            monster.draw(screen);
+//        }
     }
 
     public void moveSnake(Position position) {
@@ -143,7 +149,7 @@ public class Arena {
     }
 
     public boolean verifySnakeBodyCollisions() {
-        return snakeBodyParts.contains(new SnakeBodyPart(snake.getPosition().getX(), snake.getPosition().getY()));
+        return !checkPositionNotInSnakeBodyParts(snake.getPosition());
     }
 
     public boolean canSnakeMove(Position position) {
