@@ -17,7 +17,7 @@ public class Arena {
     private List<Teleporter> teleporters;
     private List<SnakeBodyPart> snakeBodyParts;
     private List<Wall> walls;
-    private List<Fruit> fruits;
+    private List<Fruit> fruits = new ArrayList<>();
     private int score = 0;
 
     Arena(int width, int height) {
@@ -26,8 +26,8 @@ public class Arena {
         snake = new Snake(20, 10);
         snakeBodyParts = createSnakeBodyParts();
         walls = createWalls();
-        fruits = createFruits();
         teleporters = createTeleporters();
+        createFruits();
     }
 
     public int getHeight() {
@@ -75,9 +75,19 @@ public class Arena {
         if (was_position_changed) {
             updateSnakeNewBodyParts(initial_snake_position, wasFruitCollected);
         }
-//        if (wasFruitCollected) {
-//            fruits.addNewFruit();
-//        }
+        if (wasFruitCollected) {
+            addNewFruit();
+        }
+    }
+
+    public void addNewFruit() {
+        Random random = new Random();
+        boolean validPosition = false;
+        Position position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
+        while (!checkPositionNotInSnakeBodyParts(position) || !checkPositionNotInWalls(position) || !checkPositionNotInTeleporters(position)) {
+            position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
+        }
+        fruits.add(new Fruit(position.getX(), position.getY()));
     }
 
     public List<Teleporter> createTeleporters() {
@@ -179,12 +189,10 @@ public class Arena {
         return !checkPositionNotInWalls(snake.getPosition());
     }
 
-    private List<Fruit> createFruits() {
-        Random random = new Random();
-        ArrayList<Fruit> fruits = new ArrayList<>();
+    private void createFruits() {
         for (int i = 0; i < 5; i++)
-            fruits.add(new Fruit(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1));
-        return fruits;
+            addNewFruit();
+        return;
     }
     private boolean collectFruit(){
         for(Fruit fruit : fruits){
@@ -218,6 +226,15 @@ public class Arena {
     private boolean checkPositionNotInWalls(Position position) {
         for (Wall wall : walls) {
             if (wall.getPosition().equals(position)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkPositionNotInTeleporters(Position position) {
+        for (Teleporter teleporter : teleporters) {
+            if (teleporter.getPosition().equals(position)) {
                 return false;
             }
         }
