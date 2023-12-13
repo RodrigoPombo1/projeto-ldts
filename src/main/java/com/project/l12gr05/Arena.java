@@ -67,16 +67,10 @@ public class Arena {
         if (canSnakeMove(position)) {
             was_position_changed = true;
             // teleporter check for snake here
-            if (verifyTeleporterCollisions(position)) {
-                for (Teleporter teleporter : teleporters) {
-                    if (teleporter.getPosition().equals(position)) {
-                        snake.setPosition(getTeleporterDestination(teleporter, initial_snake_position));
-                        break;
-                    }
-                }
-            } else {
-                snake.setPosition(position);
+            if (!checkPositionNotInTeleporters(position)) {
+                position = getTeleporterDestination(getTeleporter(position), initial_snake_position);
             }
+            snake.setPosition(position);
         }
         boolean wasFruitCollected = collectFruit();
         if (was_position_changed) {
@@ -85,6 +79,15 @@ public class Arena {
         if (wasFruitCollected) {
             addNewFruit();
         }
+    }
+
+    public Teleporter getTeleporter(Position position) {
+        for (Teleporter teleporter : teleporters) {
+            if (teleporter.getPosition().equals(position)) {
+                return teleporter;
+            }
+        }
+        return null;
     }
 
     public void addNewFruit() {
@@ -117,15 +120,6 @@ public class Arena {
         teleporters.add(new Teleporter(10,5));
         teleporters.add(new Teleporter(30, 15));
         return teleporters;
-    }
-
-    public boolean verifyTeleporterCollisions(Position Element_position) {
-        for (Teleporter teleporter : teleporters) {
-            if (teleporter.getPosition().equals(Element_position)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public Teleporter getOtherTeleporter(Teleporter teleporter) {
@@ -166,6 +160,10 @@ public class Arena {
 
     public boolean verifySnakeBodyCollisions() {
         return !checkPositionNotInSnakeBodyParts(snake.getPosition());
+    }
+
+    public boolean verifyMonsterCollisions() {
+        return !checkPositionNotInMonsters(snake.getPosition());
     }
 
     public boolean canSnakeMove(Position position) {
@@ -227,6 +225,24 @@ public class Arena {
         return false;
     }
 
+    public void moveMonsters() {
+        for (Monster monster : monsters) {
+            Position new_position = monster.move();
+            while (!canMonsterMove(new_position)) {
+                new_position = monster.move();
+            }
+            if (!checkPositionNotInTeleporters(new_position)) {
+                new_position = getTeleporterDestination(getTeleporter(new_position), monster.getPosition());
+            }
+            monster.setPosition(new_position);
+        }
+    }
+
+    public boolean canMonsterMove(Position position) {
+        return (position.getX() >= 0 && position.getX() <= width) && (position.getY() >= 0 && position.getY() <= height)
+                && checkPositionNotInSnakeBodyParts(position) && checkPositionNotInWalls(position)
+                && checkPositionNotInFruits(position);
+    }
     private boolean checkPositionNotInSnakeBodyParts(Position position) {
         for (SnakeBodyPart snakeBodyPart : snakeBodyParts) {
             if (snakeBodyPart.getPosition().equals(position)) {
@@ -257,6 +273,15 @@ public class Arena {
     private boolean checkPositionNotInTeleporters(Position position) {
         for (Teleporter teleporter : teleporters) {
             if (teleporter.getPosition().equals(position)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkPositionNotInMonsters(Position position) {
+        for (Monster monster : monsters) {
+            if (monster.getPosition().equals(position)) {
                 return false;
             }
         }
