@@ -19,7 +19,7 @@ public class Arena {
     private List<Wall> walls;
     private List<Fruit> fruits = new ArrayList<>();
 
-//    private List<Monster> monsters;
+    private List<Monster> monsters;
     private int score = 0;
 
     Arena(int width, int height) {
@@ -30,7 +30,7 @@ public class Arena {
         walls = createWalls();
         teleporters = createTeleporters();
         createFruits();
-//        monsters = createMonsters();
+        monsters = createMonsters();
     }
 
     public int getHeight() {
@@ -53,11 +53,12 @@ public class Arena {
         for (SnakeBodyPart snakeBodyPart : snakeBodyParts) {
             snakeBodyPart.draw(screen);
         }
-        for(Fruit fruit : fruits)
+        for (Monster monster : monsters) {
+            monster.draw(screen);
+        }
+        for(Fruit fruit : fruits) {
             fruit.draw(screen);
-//        for (Monster monster : monsters) {
-//            monster.draw(screen);
-//        }
+        }
     }
 
     public void moveSnake(Position position) {
@@ -94,6 +95,21 @@ public class Arena {
             position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
         }
         fruits.add(new Fruit(position.getX(), position.getY()));
+    }
+
+    public List<Monster> createMonsters() {
+        Random random = new Random();
+        ArrayList<Monster> monsters = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Position position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
+            while (!checkPositionNotInTeleporters(position)
+                    || !checkPositionNotInSnakeBodyParts(position)
+                    || !checkPositionNotInWalls(position)) {
+                position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
+            }
+            monsters.add(new Monster(position.getX(), position.getY()));
+        }
+        return monsters;
     }
 
     public List<Teleporter> createTeleporters() {
