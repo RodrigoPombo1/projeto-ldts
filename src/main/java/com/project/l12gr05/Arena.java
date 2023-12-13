@@ -176,7 +176,7 @@ public class Arena {
         return walls;
     }
     public boolean verifyWallCollisions() {
-        return walls.contains(new Wall(snake.getPosition().getX(), snake.getPosition().getY()));
+        return !checkPositionNotInWalls(snake.getPosition());
     }
 
     private List<Fruit> createFruits() {
@@ -195,5 +195,32 @@ public class Arena {
             }
         }
         return false;
+    }
+
+    private boolean checkPositionNotInSnakeBodyParts(Position position) {
+        for (SnakeBodyPart snakeBodyPart : snakeBodyParts) {
+            if (snakeBodyPart.getPosition().equals(position)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkPositionNotInFruits(Position position) {
+        for (Fruit fruit : fruits) {
+            if (fruit.getPosition().equals(position)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkPositionNotInWalls(Position position) {
+        for (Wall wall : walls) {
+            if (wall.getPosition().equals(position)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
