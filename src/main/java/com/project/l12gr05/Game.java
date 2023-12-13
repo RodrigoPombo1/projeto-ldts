@@ -165,6 +165,9 @@ public class Game {
                     screen.close();
                     break;
                 }
+
+                arena.moveMovingFruits();
+                arena.verifyMovingFruitCollisions();
             }
         } catch (IOException e) {
             e.printStackTrace();

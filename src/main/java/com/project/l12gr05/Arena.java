@@ -20,6 +20,10 @@ public class Arena {
     private List<Fruit> fruits = new ArrayList<>();
 
     private List<Monster> monsters;
+
+    private List<MovingFruit> movingFruits = new ArrayList<>();
+
+    public int snakeBodyPartAddBecauseOfMovingFruitGoingAgainstSnake = 0;
     private int score = 0;
 
     Arena(int width, int height) {
@@ -29,8 +33,9 @@ public class Arena {
         snakeBodyParts = createSnakeBodyParts();
         walls = createWalls();
         teleporters = createTeleporters();
-        createFruits();
         monsters = createMonsters();
+        createMovingFruits();
+        createFruits();
     }
 
     public int getHeight() {
@@ -56,6 +61,9 @@ public class Arena {
         for (Monster monster : monsters) {
             monster.draw(screen);
         }
+        for (MovingFruit movingFruit : movingFruits) {
+            movingFruit.draw(screen);
+        }
         for(Fruit fruit : fruits) {
             fruit.draw(screen);
         }
@@ -73,12 +81,39 @@ public class Arena {
             snake.setPosition(position);
         }
         boolean wasFruitCollected = collectFruit();
+        boolean wasMovingFruitCollected = collectMovingFruit();
         if (was_position_changed) {
-            updateSnakeNewBodyParts(initial_snake_position, wasFruitCollected);
+            updateSnakeNewBodyParts(initial_snake_position, wasFruitCollected, wasMovingFruitCollected);
         }
         if (wasFruitCollected) {
             addNewFruit();
         }
+        if (wasMovingFruitCollected) {
+            addNewMovingFruit();
+        }
+    }
+
+    public void createMovingFruits() {
+        for (int i = 0; i < 3; i++) {
+            addNewMovingFruit();
+        }
+    }
+
+    public void addNewMovingFruit() {
+        Random random = new Random();
+        Position position = new Position(random.nextInt(width - 2) + 1,
+                random.nextInt(height - 2) + 1);
+        while (!checkPositionNotInSnakeBodyParts(position)
+                || !checkPositionNotInWalls(position)
+                || !checkPositionNotInTeleporters(position)
+                || !checkPositionNotInMonsters(position)
+                || !checkPositionNotInFruits(position)
+                || !checkPositionNotInMovingFruits(position)
+                || !checkPositionNotInSnakeBodyParts(position)) {
+            position = new Position(random.nextInt(width - 2) + 1,
+                    random.nextInt(height - 2) + 1);
+        }
+        movingFruits.add(new MovingFruit(position.getX(), position.getY()));
     }
 
     public Teleporter getTeleporter(Position position) {
@@ -92,9 +127,15 @@ public class Arena {
 
     public void addNewFruit() {
         Random random = new Random();
-        boolean validPosition = false;
-        Position position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
-        while (!checkPositionNotInSnakeBodyParts(position) || !checkPositionNotInWalls(position) || !checkPositionNotInTeleporters(position)) {
+        Position position = new Position(random.nextInt(width - 2) + 1,
+                random.nextInt(height - 2) + 1);
+        while (!checkPositionNotInSnakeBodyParts(position)
+                || !checkPositionNotInWalls(position)
+                || !checkPositionNotInTeleporters(position)
+                || !checkPositionNotInMonsters(position)
+                || !checkPositionNotInFruits(position)
+                || !checkPositionNotInMovingFruits(position)
+                || !checkPositionNotInSnakeBodyParts(position)) {
             position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
         }
         fruits.add(new Fruit(position.getX(), position.getY()));
@@ -104,11 +145,17 @@ public class Arena {
         Random random = new Random();
         ArrayList<Monster> monsters = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            Position position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
+            Position position = new Position(random.nextInt(width - 2) + 1,
+                    random.nextInt(height - 2) + 1);
             while (!checkPositionNotInTeleporters(position)
                     || !checkPositionNotInSnakeBodyParts(position)
-                    || !checkPositionNotInWalls(position)) {
-                position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
+                    || !checkPositionNotInWalls(position)
+                    || !checkPositionNotInFruits(position)
+                    || !checkPositionNotInMonsters(position)
+                    || !checkPositionNotInMovingFruits(position)
+                    || !checkPositionNotInSnakeBodyParts(position)) {
+                position = new Position(random.nextInt(width - 2) + 1,
+                        random.nextInt(height - 2) + 1);
             }
             monsters.add(new Monster(position.getX(), position.getY()));
         }
@@ -141,15 +188,20 @@ public class Arena {
                 destinationTeleporterPosition.getY() + y_difference);
     }
 
-    public void updateSnakeNewBodyParts(Position position_to_add, boolean wasFruitCollected) {
+    public void updateSnakeNewBodyParts(Position position_to_add, boolean wasFruitCollected, boolean wasMovingFruitCollected) {
         List<SnakeBodyPart> aux = new ArrayList<>();
         aux.add(new SnakeBodyPart(position_to_add.getX(), position_to_add.getY()));
-        if (!wasFruitCollected) {
+        if (!(wasFruitCollected || wasMovingFruitCollected)
+                && snakeBodyPartAddBecauseOfMovingFruitGoingAgainstSnake == 0) {
             for (int i = 0; i < snakeBodyParts.size() - 1; i++) {
                 aux.add(snakeBodyParts.get(i));
             }
             snakeBodyParts = aux;
             return;
+        }
+        if (snakeBodyPartAddBecauseOfMovingFruitGoingAgainstSnake > 0
+                && !(wasFruitCollected || wasMovingFruitCollected)) {
+            snakeBodyPartAddBecauseOfMovingFruitGoingAgainstSnake--;
         }
         for (int i = 0; i < snakeBodyParts.size(); i++) {
             aux.add(snakeBodyParts.get(i));
@@ -167,7 +219,8 @@ public class Arena {
     }
 
     public boolean canSnakeMove(Position position) {
-        return (position.getX() >= 0 && position.getX() <= width) && (position.getY() >= 0 && position.getY() <= height);
+        return (position.getX() >= 0 && position.getX() <= width)
+                && (position.getY() >= 0 && position.getY() <= height);
     }
 
     public List<SnakeBodyPart> createSnakeBodyParts() {
@@ -225,10 +278,21 @@ public class Arena {
         return false;
     }
 
+    private boolean collectMovingFruit(){
+        for(MovingFruit movingFruit : movingFruits){
+            if(snake.getPosition().equals(movingFruit.getPosition())) {
+                movingFruits.remove(movingFruit);
+                score+=2;
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void moveMonsters() {
         for (Monster monster : monsters) {
             Position new_position = monster.move();
-            while (!canMonsterMove(new_position)) {
+            while (!canElementMove(new_position)) {
                 new_position = monster.move();
             }
             if (!checkPositionNotInTeleporters(new_position)) {
@@ -238,11 +302,28 @@ public class Arena {
         }
     }
 
-    public boolean canMonsterMove(Position position) {
-        return (position.getX() >= 0 && position.getX() <= width) && (position.getY() >= 0 && position.getY() <= height)
-                && checkPositionNotInSnakeBodyParts(position) && checkPositionNotInWalls(position)
-                && checkPositionNotInFruits(position);
+    public void moveMovingFruits() {
+        for (MovingFruit movingFruit : movingFruits) {
+            Position new_position = movingFruit.move();
+            while (!canElementMove(new_position)) {
+                new_position = movingFruit.move();
+            }
+            if (!checkPositionNotInTeleporters(new_position)) {
+                new_position = getTeleporterDestination(getTeleporter(new_position), movingFruit.getPosition());
+            }
+            movingFruit.setPosition(new_position);
+        }
     }
+    public boolean canElementMove(Position position) {
+        return (position.getX() >= 0 && position.getX() <= width)
+                && (position.getY() >= 0 && position.getY() <= height)
+                && checkPositionNotInSnakeBodyParts(position)
+                && checkPositionNotInWalls(position)
+                && checkPositionNotInFruits(position)
+                && checkPositionNotInMovingFruits(position)
+                && checkPositionNotInMonsters(position);
+    }
+
     private boolean checkPositionNotInSnakeBodyParts(Position position) {
         for (SnakeBodyPart snakeBodyPart : snakeBodyParts) {
             if (snakeBodyPart.getPosition().equals(position)) {
@@ -253,8 +334,23 @@ public class Arena {
     }
 
     private boolean checkPositionNotInFruits(Position position) {
+        if (fruits == null) {
+            return true;
+        }
         for (Fruit fruit : fruits) {
             if (fruit.getPosition().equals(position)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkPositionNotInMovingFruits(Position position) {
+        if (movingFruits == null) {
+            return true;
+        }
+        for (MovingFruit movingFruit : movingFruits) {
+            if (movingFruit.getPosition().equals(position)) {
                 return false;
             }
         }
@@ -270,6 +366,15 @@ public class Arena {
         return true;
     }
 
+    public void verifyMovingFruitCollisions() {
+        if (collectMovingFruit()) {
+            addNewMovingFruit();
+            snakeBodyPartAddBecauseOfMovingFruitGoingAgainstSnake++;
+            score += 2;
+        }
+        return;
+    }
+
     private boolean checkPositionNotInTeleporters(Position position) {
         for (Teleporter teleporter : teleporters) {
             if (teleporter.getPosition().equals(position)) {
@@ -280,6 +385,9 @@ public class Arena {
     }
 
     private boolean checkPositionNotInMonsters(Position position) {
+        if (monsters == null) {
+            return true;
+        }
         for (Monster monster : monsters) {
             if (monster.getPosition().equals(position)) {
                 return false;
