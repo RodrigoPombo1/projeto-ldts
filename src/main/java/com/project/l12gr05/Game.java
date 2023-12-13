@@ -14,6 +14,9 @@ public class Game {
     private Screen screen;
     private Arena arena;
 
+    enum lastMove {UP, DOWN, LEFT, RIGHT}
+    lastMove lastMoveInput = lastMove.LEFT;
+
     private void processKey(KeyStroke key) {
         KeyType key_keytype = key.getKeyType();
         if (key_keytype == KeyType.Character) {
@@ -57,13 +60,89 @@ public class Game {
         screen.refresh();
     }
 
+    private boolean checkInput(KeyStroke key) {
+        boolean validMove = false;
+        switch (key.getKeyType()) {
+            case Character -> {
+                switch(key.getCharacter()) {
+                    case 'w' -> {
+                        if (lastMoveInput != lastMove.DOWN) {
+                            lastMoveInput = lastMove.UP;
+                            validMove = true;
+                        }
+                    }
+                    case 's' -> {
+                        if (lastMoveInput != lastMove.UP) {
+                            lastMoveInput = lastMove.DOWN;
+                            validMove = true;
+                        }
+                    }
+                    case 'a' -> {
+                        if (lastMoveInput != lastMove.RIGHT) {
+                            lastMoveInput = lastMove.LEFT;
+                            validMove = true;
+                        }
+                    }
+                    case 'd' -> {
+                        if (lastMoveInput != lastMove.LEFT) {
+                            lastMoveInput = lastMove.RIGHT;
+                            validMove = true;
+                        }
+                    }
+                    case 'e' -> {
+                        validMove = true;
+                    }
+                    default -> {
+                        validMove = false;
+                    }
+
+                }
+            }
+            case ArrowUp -> {
+                if (lastMoveInput != lastMove.DOWN) {
+                    lastMoveInput = lastMove.UP;
+                    validMove = true;
+                }
+            }
+            case ArrowDown -> {
+                if (lastMoveInput != lastMove.UP) {
+                    lastMoveInput = lastMove.DOWN;
+                    validMove = true;
+                }
+            }
+            case ArrowLeft -> {
+                if (lastMoveInput != lastMove.RIGHT) {
+                    lastMoveInput = lastMove.LEFT;
+                    validMove = true;
+                }
+            }
+            case ArrowRight -> {
+                if (lastMoveInput != lastMove.LEFT) {
+                    lastMoveInput = lastMove.RIGHT;
+                    validMove = true;
+                }
+            }
+            case EOF -> {
+                validMove = true;
+            }
+            default -> {
+                validMove = false;
+            }
+        }
+        return validMove;
+    }
+
     public void run() {
         try {
             while(true) {
                 draw();
-                KeyStroke key = screen.readInput();
+                boolean validMove = false;
+                KeyStroke key = null;
+                while (!validMove) {
+                    key = screen.readInput();
+                    validMove = checkInput(key);
+                }
                 processKey(key);
-
                 // verify collisions after movement
                 if(arena.verifyWallCollisions()) {
                     screen.close();

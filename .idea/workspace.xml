@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="edf1d8ca-2b43-4894-8817-3a8e4675fde4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Arena.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +55,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "implementing__teleporter",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/rodri/Documents/GitHub/project-l12gr05",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
