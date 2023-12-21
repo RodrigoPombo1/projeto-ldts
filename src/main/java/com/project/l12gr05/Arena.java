@@ -24,7 +24,6 @@ public class Arena {
     private List<MovingFruit> movingFruits = new ArrayList<>();
 
     public int snakeBodyPartAddBecauseOfMovingFruitGoingAgainstSnake = 0;
-    private int score = 0;
 
     Arena(int width, int height) {
         this.width = width;
@@ -36,14 +35,6 @@ public class Arena {
         monsters = createMonsters();
         createMovingFruits();
         createFruits();
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public int getWidth() {
-        return width;
     }
 
     public void draw(TextGraphics screen) {
@@ -271,7 +262,6 @@ public class Arena {
         for(Fruit fruit : fruits){
             if(snake.getPosition().equals(fruit.getPosition())) {
                 fruits.remove(fruit);
-                score++;
                 return true;
             }
         }
@@ -282,7 +272,6 @@ public class Arena {
         for(MovingFruit movingFruit : movingFruits){
             if(snake.getPosition().equals(movingFruit.getPosition())) {
                 movingFruits.remove(movingFruit);
-                score+=2;
                 return true;
             }
         }
@@ -370,7 +359,6 @@ public class Arena {
         if (collectMovingFruit()) {
             addNewMovingFruit();
             snakeBodyPartAddBecauseOfMovingFruitGoingAgainstSnake++;
-            score += 2;
         }
         return;
     }
