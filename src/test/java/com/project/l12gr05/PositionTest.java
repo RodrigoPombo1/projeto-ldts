@@ -23,35 +23,33 @@ public class PositionTest {
     }
 
     @Test
-    public void equals() {
+    public void PositionEqualsPosition() {
         Position position_other = new Position(1, 2);
         assertEquals(position, position_other);
         assertEquals(position_other, position);
     }
 
     @Test
-    public void notEquals() {
+    public void PositionNotEqualsPosition() {
         Position position_other = new Position(3, 4);
         assertNotEquals(position, position_other);
         assertNotEquals(position_other, position);
     }
 
     @Test
-    public void samePosition() {
+    public void PositionEqualsItself() {
         Position position_other = position;
         assertEquals(position, position_other);
         assertEquals(position_other, position);
     }
 
     @Test
-    public void notPositionObject() {
+    public void PositionNotEqualsNonPositionObject() {
         assertNotEquals(position, "not a position object");
-        assertNotEquals("not a position object", position);
     }
 
     @Test
-    public void nullObject() {
+    public void PositionNotEqualsNull() {
         assertNotEquals(position, null);
-        assertNotEquals(null, position);
     }
 }
