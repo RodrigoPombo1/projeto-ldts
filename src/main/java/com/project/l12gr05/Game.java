@@ -64,39 +64,7 @@ public class Game {
         boolean validMove = false;
         switch (key.getKeyType()) {
             case Character -> {
-                switch(key.getCharacter()) {
-                    case 'w' -> {
-                        if (lastMoveInput != lastMove.DOWN) {
-                            lastMoveInput = lastMove.UP;
-                            validMove = true;
-                        }
-                    }
-                    case 's' -> {
-                        if (lastMoveInput != lastMove.UP) {
-                            lastMoveInput = lastMove.DOWN;
-                            validMove = true;
-                        }
-                    }
-                    case 'a' -> {
-                        if (lastMoveInput != lastMove.RIGHT) {
-                            lastMoveInput = lastMove.LEFT;
-                            validMove = true;
-                        }
-                    }
-                    case 'd' -> {
-                        if (lastMoveInput != lastMove.LEFT) {
-                            lastMoveInput = lastMove.RIGHT;
-                            validMove = true;
-                        }
-                    }
-                    case 'e' -> {
-                        validMove = true;
-                    }
-                    default -> {
-                        validMove = false;
-                    }
-
-                }
+                validMove = isValidCharacterInput(key);
             }
             case ArrowUp -> {
                 if (lastMoveInput != lastMove.DOWN) {
@@ -123,6 +91,43 @@ public class Game {
                 }
             }
             case EOF -> {
+                validMove = true;
+            }
+            default -> {
+                validMove = false;
+            }
+        }
+        return validMove;
+    }
+
+    private boolean isValidCharacterInput(KeyStroke key) {
+        boolean validMove = false;
+        switch (key.getCharacter()) {
+            case 'w' -> {
+                if (lastMoveInput != lastMove.DOWN) {
+                    lastMoveInput = lastMove.UP;
+                    validMove = true;
+                }
+            }
+            case 's' -> {
+                if (lastMoveInput != lastMove.UP) {
+                    lastMoveInput = lastMove.DOWN;
+                    validMove = true;
+                }
+            }
+            case 'a' -> {
+                if (lastMoveInput != lastMove.RIGHT) {
+                    lastMoveInput = lastMove.LEFT;
+                    validMove = true;
+                }
+            }
+            case 'd' -> {
+                if (lastMoveInput != lastMove.LEFT) {
+                    lastMoveInput = lastMove.RIGHT;
+                    validMove = true;
+                }
+            }
+            case 'e' -> {
                 validMove = true;
             }
             default -> {
