@@ -160,13 +160,13 @@ public class Game {
                 if (key.getKeyType() == KeyType.Character && key.getCharacter() == 'e') screen.close();
                 if (key.getKeyType() == KeyType.EOF) break;
 
-                arena.moveMonsters();
+                arena.moveMultipleElementsRandomly(arena.monsters);
                 if(arena.verifyMonsterCollisions()){
                     screen.close();
                     break;
                 }
 
-                arena.moveMovingFruits();
+                arena.moveMultipleElementsRandomly(arena.movingFruits);
                 arena.verifyMovingFruitCollisions();
             }
         } catch (IOException e) {

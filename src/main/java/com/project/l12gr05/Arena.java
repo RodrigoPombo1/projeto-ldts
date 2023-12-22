@@ -19,9 +19,9 @@ public class Arena {
     private List<Wall> walls;
     private List<Fruit> fruits = new ArrayList<>();
 
-    private List<Monster> monsters;
+    public List<Monster> monsters;
 
-    private List<MovingFruit> movingFruits = new ArrayList<>();
+    public List<MovingFruit> movingFruits = new ArrayList<>();
 
     public int snakeBodyPartAddBecauseOfMovingFruitGoingAgainstSnake = 0;
 
@@ -94,13 +94,7 @@ public class Arena {
         Random random = new Random();
         Position position = new Position(random.nextInt(width - 2) + 1,
                 random.nextInt(height - 2) + 1);
-        while (!checkPositionNotInSnakeBodyParts(position)
-                || !checkPositionNotInWalls(position)
-                || !checkPositionNotInTeleporters(position)
-                || !checkPositionNotInMonsters(position)
-                || !checkPositionNotInFruits(position)
-                || !checkPositionNotInMovingFruits(position)
-                || !checkPositionNotInSnakeBodyParts(position)) {
+        while (!canElementMoveOrSpawn(position)) {
             position = new Position(random.nextInt(width - 2) + 1,
                     random.nextInt(height - 2) + 1);
         }
@@ -120,13 +114,7 @@ public class Arena {
         Random random = new Random();
         Position position = new Position(random.nextInt(width - 2) + 1,
                 random.nextInt(height - 2) + 1);
-        while (!checkPositionNotInSnakeBodyParts(position)
-                || !checkPositionNotInWalls(position)
-                || !checkPositionNotInTeleporters(position)
-                || !checkPositionNotInMonsters(position)
-                || !checkPositionNotInFruits(position)
-                || !checkPositionNotInMovingFruits(position)
-                || !checkPositionNotInSnakeBodyParts(position)) {
+        while (!canElementMoveOrSpawn(position)) {
             position = new Position(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
         }
         fruits.add(new Fruit(position.getX(), position.getY()));
@@ -138,13 +126,7 @@ public class Arena {
         for (int i = 0; i < 5; i++) {
             Position position = new Position(random.nextInt(width - 2) + 1,
                     random.nextInt(height - 2) + 1);
-            while (!checkPositionNotInTeleporters(position)
-                    || !checkPositionNotInSnakeBodyParts(position)
-                    || !checkPositionNotInWalls(position)
-                    || !checkPositionNotInFruits(position)
-                    || !checkPositionNotInMonsters(position)
-                    || !checkPositionNotInMovingFruits(position)
-                    || !checkPositionNotInSnakeBodyParts(position)) {
+            while (!canElementMoveOrSpawn(position)) {
                 position = new Position(random.nextInt(width - 2) + 1,
                         random.nextInt(height - 2) + 1);
             }
@@ -278,32 +260,32 @@ public class Arena {
         return false;
     }
 
-    public void moveMonsters() {
-        for (Monster monster : monsters) {
-            Position new_position = monster.move();
-            while (!canElementMove(new_position)) {
-                new_position = monster.move();
+    public void moveMultipleElementsRandomly(List<? extends Element> elements) {
+        for (Element element : elements) {
+            Position new_position = getPositionToMoveElementRandomly(element);
+            while (!canElementMoveOrSpawn(new_position)) {
+                new_position = getPositionToMoveElementRandomly(element);
             }
             if (!checkPositionNotInTeleporters(new_position)) {
-                new_position = getTeleporterDestination(getTeleporter(new_position), monster.getPosition());
+                new_position = getTeleporterDestination(getTeleporter(new_position), element.getPosition());
             }
-            monster.setPosition(new_position);
+            element.setPosition(new_position);
         }
     }
 
-    public void moveMovingFruits() {
-        for (MovingFruit movingFruit : movingFruits) {
-            Position new_position = movingFruit.move();
-            while (!canElementMove(new_position)) {
-                new_position = movingFruit.move();
-            }
-            if (!checkPositionNotInTeleporters(new_position)) {
-                new_position = getTeleporterDestination(getTeleporter(new_position), movingFruit.getPosition());
-            }
-            movingFruit.setPosition(new_position);
-        }
+    public Position getPositionToMoveElementRandomly(Element element) {
+        Position element_position = element.getPosition();
+        int direction = new RandomNumberGenerator().randomNextInt(4);
+        Position new_position = switch (direction) {
+            case 0 -> new Position(element_position.getX(), element_position.getY() - 1);
+            case 1 -> new Position(element_position.getX(), element_position.getY() + 1);
+            case 2 -> new Position(element_position.getX() - 1, element_position.getY());
+            case 3 -> new Position(element_position.getX() + 1, element_position.getY());
+            default -> null;
+        };
+        return new_position;
     }
-    public boolean canElementMove(Position position) {
+    public boolean canElementMoveOrSpawn(Position position) {
         return (position.getX() >= 0 && position.getX() <= width)
                 && (position.getY() >= 0 && position.getY() <= height)
                 && checkPositionNotInSnakeBodyParts(position)
