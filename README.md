@@ -5,7 +5,10 @@ Snake is a classic phone game where the player controls a snake and eats fruits 
 
 Our game is basically snake but in hard mode, where monsters that move randomly and can kill the snake if hit directly appear, some of the fruits move randomly which makes them relatively harder to eat and two teleporters are placed on determined locations on the map, enabling the option to travel from one place to another but making it possible to died directly after the teleport if the way is obstructed.
 
-This project was developed by Liess Pereira Aouimeur (up202206296@up.pt), Rodrigo Pinto Pesqueira Gaspar Pombo (up202105374@up.pt) and Fernando Manuel de Melo Oliveira (up201005231@up.pt).
+This project was developed by:
+- Liess Pereira Aouimeur (up202206296@up.pt)
+- Rodrigo Pinto Pesqueira Gaspar Pombo (up202105374@up.pt)
+- Fernando Manuel de Melo Oliveira (up201005231@up.pt)
 
 ## Game Help
 
@@ -96,3 +99,7 @@ Liess Aouimeur and Rodrigo Pombo contributed an equal share to the work. We (Lie
 - Fernando Manuel de Melo Oliveira - 0%
 
 Fernando did not contribute to the project, he was not present in any of the meetings and did not do any work.
+
+In the intermediate delivery we had initially put that everyone had contributed equally, because the delivery was small and the work was done in a single meeting where only Liess and Rodrigo were present. So we decided that it was unfair to put that he had done nothing in the intermediate delivery, because Fernando could have simply not been available at that specific time and we decided it wasn't fair to penalize him for not begin able to attend one specific meeting.
+
+However we did not expect for this situation to happen again and him to not attend any of the meetings and not do any work, so we decided to put that he did not contribute to the project in the final delivery.
