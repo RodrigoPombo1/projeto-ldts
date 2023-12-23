@@ -7,8 +7,6 @@
     <list default="true" id="edf1d8ca-2b43-4894-8817-3a8e4675fde4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Arena.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/l12gr05/ArenaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/l12gr05/ArenaTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +59,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "testing__arena__class",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/rodri/Downloads/project-l07gr08-main/project-l07gr08-main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -76,7 +74,20 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.ArenaTest.moveSnakeIntoSecondTeleporterTest">
+  <component name="RunManager" selected="Gradle.GameTest.GameRunPressWTest">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.project.l12gr05.Application" />
+      <module name="project-l12gr05.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.l12gr05.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ArenaTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -149,7 +160,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ArenaTest.moveSnakeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GameTest.GameRunPressWTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -162,29 +173,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.l12gr05.ArenaTest.moveSnakeTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="Tests in 'project-l12gr05.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
+            <option value="&quot;com.project.l12gr05.GameTest.GameRunPressWTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -197,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.GameTest.GameRunPressWTest" />
+        <item itemvalue="Application.Application" />
         <item itemvalue="Gradle.ArenaTest.moveSnakeIntoSecondTeleporterTest" />
         <item itemvalue="Gradle.ArenaTest.moveSnakeIntoFirstTeleporterTest" />
         <item itemvalue="Gradle.ArenaTest" />
-        <item itemvalue="Gradle.ArenaTest.moveSnakeTest" />
-        <item itemvalue="Gradle.Tests in 'project-l12gr05.test'" />
       </list>
     </recent_temporary>
   </component>

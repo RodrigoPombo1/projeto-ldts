@@ -96,7 +96,7 @@ public class Arena {
         RandomNumberGenerator random = new RandomNumberGenerator();
         Position position = new Position(random.randomNextInt(width - 2) + 1,
                 random.randomNextInt(height - 2) + 1);
-        while (!canElementMoveOrSpawn(position)) {
+        while (!canElementSpawn(position)) {
             position = new Position(random.randomNextInt(width - 2) + 1,
                     random.randomNextInt(height - 2) + 1);
         }
@@ -116,7 +116,7 @@ public class Arena {
         RandomNumberGenerator random = new RandomNumberGenerator();
         Position position = new Position(random.randomNextInt(width - 2) + 1,
                 random.randomNextInt(height - 2) + 1);
-        while (!canElementMoveOrSpawn(position)) {
+        while (!canElementSpawn(position)) {
             position = new Position(random.randomNextInt(width - 2) + 1, random.randomNextInt(height - 2) + 1);
         }
         fruits.add(new Fruit(position.getX(), position.getY()));
@@ -128,7 +128,7 @@ public class Arena {
         for (int i = 0; i < 5; i++) {
             Position position = new Position(random.randomNextInt(width - 2) + 1,
                     random.randomNextInt(height - 2) + 1);
-            while (!canElementMoveOrSpawn(position)) {
+            while (!canElementSpawn(position)) {
                 position = new Position(random.randomNextInt(width - 2) + 1,
                         random.randomNextInt(height - 2) + 1);
             }
@@ -265,7 +265,7 @@ public class Arena {
     public void moveMultipleElementsRandomly(List<? extends Element> elements) {
         for (Element element : elements) {
             Position new_position = getPositionToMoveElementRandomly(element);
-            while (!canElementMoveOrSpawn(new_position)) {
+            while (!canElementMove(new_position)) {
                 new_position = getPositionToMoveElementRandomly(element);
             }
             if (!checkPositionNotInTeleporters(new_position)) {
@@ -287,7 +287,11 @@ public class Arena {
         };
         return new_position;
     }
-    private boolean canElementMoveOrSpawn(Position position) {
+
+    private boolean canElementSpawn(Position position) {
+        return canElementMove(position) && checkPositionNotInTeleporters(position);
+    }
+    private boolean canElementMove(Position position) {
         return (position.getX() >= 0 && position.getX() <= width)
                 && (position.getY() >= 0 && position.getY() <= height)
                 && checkPositionNotInSnakeBodyParts(position)
