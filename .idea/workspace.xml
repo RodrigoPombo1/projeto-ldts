@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="edf1d8ca-2b43-4894-8817-3a8e4675fde4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Arena.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +60,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "testing__arena__class",
     "last_opened_file_path": "C:/Users/rodri/Downloads/project-l07gr08-main/project-l07gr08-main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -73,7 +75,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.Tests in 'project-l12gr05.test'">
+  <component name="RunManager" selected="Gradle.Tests in 'com.project.l12gr05'">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.project.l12gr05.Application" />
       <module name="project-l12gr05.main" />
@@ -87,7 +89,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MonsterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ArenaTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -100,7 +102,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.l12gr05.MonsterTest&quot;" />
+            <option value="&quot;com.project.l12gr05.ArenaTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -135,7 +137,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="SnakeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'com.project.l12gr05'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -148,7 +150,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.l12gr05.SnakeTest&quot;" />
+            <option value="&quot;com.project.l12gr05.*&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -183,11 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.Tests in 'com.project.l12gr05'" />
+        <item itemvalue="Gradle.ArenaTest" />
         <item itemvalue="Gradle.Tests in 'project-l12gr05.test'" />
         <item itemvalue="Application.Application" />
         <item itemvalue="Gradle.MonsterTest.MonsterMoveCase0" />
-        <item itemvalue="Gradle.MonsterTest" />
-        <item itemvalue="Gradle.SnakeTest" />
       </list>
     </recent_temporary>
   </component>

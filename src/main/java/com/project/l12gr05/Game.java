@@ -56,7 +56,8 @@ public class Game {
 
     private void draw() throws IOException{
         screen.clear();
-        arena.draw(screen.newTextGraphics());
+        arena.draw(screen.newTextGraphics(), arena.snake, arena.teleporters, arena.walls, arena.snakeBodyParts,
+                arena.monsters, arena.movingFruits, arena.fruits);
         screen.refresh();
     }
 
