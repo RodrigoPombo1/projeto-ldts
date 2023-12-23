@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Position.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.project.l12gr05;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Position {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int x;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private int y;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Position(int x, int y) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.x = x;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.y = y;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getX() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_12'/>
+12
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_12'>1</a>
+<span>
+
+1. getX : replaced int return with 0 for com/project/l12gr05/Position::getX &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return x;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getY() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_16'/>
+16
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_16'>1</a>
+<span>
+
+1. getY : replaced int return with 0 for com/project/l12gr05/Position::getY &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return y;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean equals(Object o) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_21'/>
+21
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_21'>2</a>
+<span>
+
+1. equals : negated conditional &rarr; KILLED<br/>
+
+2. equals : replaced boolean return with false for com/project/l12gr05/Position::equals &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (this == o) return true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_22'/>
+22
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_22'>2</a>
+<span>
+
+1. equals : negated conditional &rarr; KILLED<br/>
+
+2. equals : replaced boolean return with true for com/project/l12gr05/Position::equals &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (o == null) return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_23'>2</a>
+<span>
+
+1. equals : replaced boolean return with true for com/project/l12gr05/Position::equals &rarr; KILLED<br/>
+
+2. equals : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (getClass() != o.getClass()) return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        Position p = (Position) o;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_25'/>
+25
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_25'>3</a>
+<span>
+
+1. equals : negated conditional &rarr; KILLED<br/>
+
+2. equals : negated conditional &rarr; KILLED<br/>
+
+3. equals : replaced boolean return with true for com/project/l12gr05/Position::equals &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return x == p.getX() &#38;&#38; y == p.getY();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@1aa99005_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1aa99005_12'>12</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_12'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getX<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:getX()]</span></span> replaced int return with 0 for com/project/l12gr05/Position::getX &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1aa99005_16'>16</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_16'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getY<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:getY()]</span></span> replaced int return with 0 for com/project/l12gr05/Position::getY &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1aa99005_21'>21</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_21'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionNotEqualsNull()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionEqualsItself()]</span></span> replaced boolean return with false for com/project/l12gr05/Position::equals &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1aa99005_22'>22</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_22'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionNotEqualsNull()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionNotEqualsNull()]</span></span> replaced boolean return with true for com/project/l12gr05/Position::equals &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1aa99005_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionNotEqualsNonPositionObject()]</span></span> replaced boolean return with true for com/project/l12gr05/Position::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionNotEqualsNonPositionObject()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@1aa99005_25'>25</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@1aa99005_25'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionEqualsPosition()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionEqualsPosition()]</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>equals<br/><b>Killed by : </b>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionNotEqualsPosition()]</span></span> replaced boolean return with true for com/project/l12gr05/Position::equals &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+
+<li class='mutator'>EMPTY_RETURNS</li>
+
+<li class='mutator'>FALSE_RETURNS</li>
+
+<li class='mutator'>INCREMENTS</li>
+
+<li class='mutator'>INVERT_NEGS</li>
+
+<li class='mutator'>MATH</li>
+
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+
+<li class='mutator'>NULL_RETURNS</li>
+
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+
+<li class='mutator'>TRUE_RETURNS</li>
+
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:getY()] (0 ms)</li><li>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionEqualsPosition()] (0 ms)</li><li>com.project.l12gr05.MovingFruitTest.[engine:junit-jupiter]/[class:com.project.l12gr05.MovingFruitTest]/[method:MovingFruitPositionChange()] (0 ms)</li><li>com.project.l12gr05.MonsterTest.[engine:junit-jupiter]/[class:com.project.l12gr05.MonsterTest]/[method:MonsterPosition()] (0 ms)</li><li>com.project.l12gr05.FruitTest.[engine:junit-jupiter]/[class:com.project.l12gr05.FruitTest]/[method:FruitPositionChange()] (0 ms)</li><li>com.project.l12gr05.SnakeBodyPartTest.[engine:junit-jupiter]/[class:com.project.l12gr05.SnakeBodyPartTest]/[method:SnakeBodyPartPositionChange()] (0 ms)</li><li>com.project.l12gr05.TeleporterTest.[engine:junit-jupiter]/[class:com.project.l12gr05.TeleporterTest]/[method:TeleporterPositionChange()] (0 ms)</li><li>com.project.l12gr05.WallTest.[engine:junit-jupiter]/[class:com.project.l12gr05.WallTest]/[method:WallPosition()] (0 ms)</li><li>com.project.l12gr05.SnakeTest.[engine:junit-jupiter]/[class:com.project.l12gr05.SnakeTest]/[method:SnakePositionChange()] (0 ms)</li><li>com.project.l12gr05.TeleporterTest.[engine:junit-jupiter]/[class:com.project.l12gr05.TeleporterTest]/[method:TeleporterPosition()] (0 ms)</li><li>com.project.l12gr05.WallTest.[engine:junit-jupiter]/[class:com.project.l12gr05.WallTest]/[method:WallPositionChange()] (0 ms)</li><li>com.project.l12gr05.SnakeTest.[engine:junit-jupiter]/[class:com.project.l12gr05.SnakeTest]/[method:SnakePosition()] (0 ms)</li><li>com.project.l12gr05.FruitTest.[engine:junit-jupiter]/[class:com.project.l12gr05.FruitTest]/[method:FruitPosition()] (0 ms)</li><li>com.project.l12gr05.MovingFruitTest.[engine:junit-jupiter]/[class:com.project.l12gr05.MovingFruitTest]/[method:MovingFruitPosition()] (0 ms)</li><li>com.project.l12gr05.MonsterTest.[engine:junit-jupiter]/[class:com.project.l12gr05.MonsterTest]/[method:MonsterPositionChange()] (0 ms)</li><li>com.project.l12gr05.SnakeBodyPartTest.[engine:junit-jupiter]/[class:com.project.l12gr05.SnakeBodyPartTest]/[method:SnakeBodyPartPosition()] (0 ms)</li><li>com.project.l12gr05.FruitTest.[engine:junit-jupiter]/[class:com.project.l12gr05.FruitTest]/[method:FruitEquals()] (0 ms)</li><li>com.project.l12gr05.MonsterTest.[engine:junit-jupiter]/[class:com.project.l12gr05.MonsterTest]/[method:MonsterEquals()] (0 ms)</li><li>com.project.l12gr05.TeleporterTest.[engine:junit-jupiter]/[class:com.project.l12gr05.TeleporterTest]/[method:TeleporterEquals()] (0 ms)</li><li>com.project.l12gr05.SnakeBodyPartTest.[engine:junit-jupiter]/[class:com.project.l12gr05.SnakeBodyPartTest]/[method:SnakeBodyPartEquals()] (0 ms)</li><li>com.project.l12gr05.WallTest.[engine:junit-jupiter]/[class:com.project.l12gr05.WallTest]/[method:WallEquals()] (0 ms)</li><li>com.project.l12gr05.MovingFruitTest.[engine:junit-jupiter]/[class:com.project.l12gr05.MovingFruitTest]/[method:MovingFruitEquals()] (0 ms)</li><li>com.project.l12gr05.TeleporterTest.[engine:junit-jupiter]/[class:com.project.l12gr05.TeleporterTest]/[method:TeleporterDraw()] (1 ms)</li><li>com.project.l12gr05.MonsterTest.[engine:junit-jupiter]/[class:com.project.l12gr05.MonsterTest]/[method:MonsterDraw()] (1 ms)</li><li>com.project.l12gr05.SnakeBodyPartTest.[engine:junit-jupiter]/[class:com.project.l12gr05.SnakeBodyPartTest]/[method:BodyPartDraw()] (1 ms)</li><li>com.project.l12gr05.SnakeTest.[engine:junit-jupiter]/[class:com.project.l12gr05.SnakeTest]/[method:SnakeDraw()] (1 ms)</li><li>com.project.l12gr05.WallTest.[engine:junit-jupiter]/[class:com.project.l12gr05.WallTest]/[method:WallDraw()] (1 ms)</li><li>com.project.l12gr05.FruitTest.[engine:junit-jupiter]/[class:com.project.l12gr05.FruitTest]/[method:FruitDraw()] (2 ms)</li><li>com.project.l12gr05.MovingFruitTest.[engine:junit-jupiter]/[class:com.project.l12gr05.MovingFruitTest]/[method:MovingFruitDraw()] (2 ms)</li><li>com.project.l12gr05.ArenaTest.[engine:junit-jupiter]/[class:com.project.l12gr05.ArenaTest]/[method:arenaConstructorTest()] (1 ms)</li><li>com.project.l12gr05.ArenaTest.[engine:junit-jupiter]/[class:com.project.l12gr05.ArenaTest]/[method:moveSnakeCanNotBecauseOfYTest()] (1 ms)</li><li>com.project.l12gr05.ArenaTest.[engine:junit-jupiter]/[class:com.project.l12gr05.ArenaTest]/[method:moveSnakeTest()] (1 ms)</li><li>com.project.l12gr05.ArenaTest.[engine:junit-jupiter]/[class:com.project.l12gr05.ArenaTest]/[method:moveSnakeCanNotBecauseOfXTest()] (7 ms)</li><li>com.project.l12gr05.ArenaTest.[engine:junit-jupiter]/[class:com.project.l12gr05.ArenaTest]/[method:moveSnakeIntoSecondTeleporterTest()] (1 ms)</li><li>com.project.l12gr05.ArenaTest.[engine:junit-jupiter]/[class:com.project.l12gr05.ArenaTest]/[method:moveSnakeIntoFirstTeleporterTest()] (0 ms)</li><li>com.project.l12gr05.ArenaTest.[engine:junit-jupiter]/[class:com.project.l12gr05.ArenaTest]/[method:arenaDrawTest()] (524 ms)</li><li>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:getX()] (0 ms)</li><li>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionNotEqualsPosition()] (0 ms)</li><li>com.project.l12gr05.FruitTest.[engine:junit-jupiter]/[class:com.project.l12gr05.FruitTest]/[method:FruitNotEquals()] (0 ms)</li><li>com.project.l12gr05.WallTest.[engine:junit-jupiter]/[class:com.project.l12gr05.WallTest]/[method:WallNotEquals()] (0 ms)</li><li>com.project.l12gr05.TeleporterTest.[engine:junit-jupiter]/[class:com.project.l12gr05.TeleporterTest]/[method:TeleporterNotEquals()] (0 ms)</li><li>com.project.l12gr05.SnakeBodyPartTest.[engine:junit-jupiter]/[class:com.project.l12gr05.SnakeBodyPartTest]/[method:SnakeBodyPartNotEquals()] (0 ms)</li><li>com.project.l12gr05.MonsterTest.[engine:junit-jupiter]/[class:com.project.l12gr05.MonsterTest]/[method:MonsterNotEquals()] (0 ms)</li><li>com.project.l12gr05.MovingFruitTest.[engine:junit-jupiter]/[class:com.project.l12gr05.MovingFruitTest]/[method:MovingFruitNotEquals()] (0 ms)</li><li>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionNotEqualsNonPositionObject()] (0 ms)</li><li>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionNotEqualsNull()] (0 ms)</li><li>com.project.l12gr05.PositionTest.[engine:junit-jupiter]/[class:com.project.l12gr05.PositionTest]/[method:PositionEqualsItself()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.15.0
+
+</body>
+</html>
