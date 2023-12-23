@@ -40,7 +40,7 @@ public class ArenaTest {
         }
         Wall wall = Mockito.mock(Wall.class);
         List<Wall> walls = new ArrayList<>();
-        for (int i = 0; i < 118; i++) {
+        for (int i = 0; i < 2; i++) {
             walls.add(wall);
         }
         SnakeBodyPart snakeBodyPart = Mockito.mock(SnakeBodyPart.class);
@@ -50,17 +50,17 @@ public class ArenaTest {
         }
         Monster monster = Mockito.mock(Monster.class);
         List<Monster> monsters = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             monsters.add(monster);
         }
         MovingFruit movingFruit = Mockito.mock(MovingFruit.class);
         List<MovingFruit> movingFruits = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             movingFruits.add(movingFruit);
         }
         Fruit fruit = Mockito.mock(Fruit.class);
         List<Fruit> fruits = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 2; i++) {
             fruits.add(fruit);
         }
 
@@ -72,10 +72,97 @@ public class ArenaTest {
                 .fillRectangle(new TerminalPosition(0, 0), new TerminalSize(40,20), ' ');
         Mockito.verify(snake, Mockito.times(1)).draw(screen);
         Mockito.verify(teleporter, Mockito.times(2)).draw(screen);
-        Mockito.verify(wall, Mockito.times(118)).draw(screen);
+        Mockito.verify(wall, Mockito.times(2)).draw(screen);
         Mockito.verify(snakeBodyPart, Mockito.times(2)).draw(screen);
-        Mockito.verify(monster, Mockito.times(5)).draw(screen);
-        Mockito.verify(movingFruit, Mockito.times(3)).draw(screen);
-        Mockito.verify(fruit, Mockito.times(5)).draw(screen);
+        Mockito.verify(monster, Mockito.times(2)).draw(screen);
+        Mockito.verify(movingFruit, Mockito.times(2)).draw(screen);
+        Mockito.verify(fruit, Mockito.times(2)).draw(screen);
+    }
+
+    @Test
+    public void moveSnakeTest() {
+        Snake snake = Mockito.mock(Snake.class);
+        Mockito.when(snake.getPosition()).thenReturn(new Position(21, 10));
+
+        arena.moveSnake(new Position(21, 10), snake);
+
+        assertEquals(21, snake.getPosition().getX());
+        assertEquals(10, snake.getPosition().getY());
+    }
+
+    @Test
+    public void moveSnakeCanNotBecauseOfXTest() {
+        Snake snake = Mockito.mock(Snake.class);
+        Mockito.when(snake.getPosition()).thenReturn(new Position(20, 10));
+
+        arena.moveSnake(new Position(-1, 10), snake);
+
+        assertEquals(20, snake.getPosition().getX());
+        assertEquals(10, snake.getPosition().getY());
+    }
+
+    @Test
+    public void moveSnakeCanNotBecauseOfYTest() {
+        Snake snake = Mockito.mock(Snake.class);
+        Mockito.when(snake.getPosition()).thenReturn(new Position(20, 10));
+
+        arena.moveSnake(new Position(20, -1), snake);
+
+        assertEquals(20, snake.getPosition().getX());
+        assertEquals(10, snake.getPosition().getY());
+    }
+
+    @Test
+    public void moveSnakeIntoFirstTeleporterTest() {
+        arena.moveSnake(new Position(9, 5), arena.snake);
+        arena.moveSnake(new Position(10, 5), arena.snake);
+
+        assertEquals(31, arena.snake.getPosition().getX());
+        assertEquals(15, arena.snake.getPosition().getY());
+
+        arena.moveSnake(new Position(11, 5), arena.snake);
+        arena.moveSnake(new Position(10, 5), arena.snake);
+
+        assertEquals(29, arena.snake.getPosition().getX());
+        assertEquals(15, arena.snake.getPosition().getY());
+
+        arena.moveSnake(new Position(10, 4), arena.snake);
+        arena.moveSnake(new Position(10, 5), arena.snake);
+
+        assertEquals(30, arena.snake.getPosition().getX());
+        assertEquals(16, arena.snake.getPosition().getY());
+
+        arena.moveSnake(new Position(10, 6), arena.snake);
+        arena.moveSnake(new Position(10, 5), arena.snake);
+
+        assertEquals(30, arena.snake.getPosition().getX());
+        assertEquals(14, arena.snake.getPosition().getY());
+    }
+
+    @Test
+    public void moveSnakeIntoSecondTeleporterTest() {
+        arena.moveSnake(new Position(29, 15), arena.snake);
+        arena.moveSnake(new Position(30, 15), arena.snake);
+
+        assertEquals(11, arena.snake.getPosition().getX());
+        assertEquals(5, arena.snake.getPosition().getY());
+
+        arena.moveSnake(new Position(31, 15), arena.snake);
+        arena.moveSnake(new Position(30, 15), arena.snake);
+
+        assertEquals(9, arena.snake.getPosition().getX());
+        assertEquals(5, arena.snake.getPosition().getY());
+
+        arena.moveSnake(new Position(30, 14), arena.snake);
+        arena.moveSnake(new Position(30, 15), arena.snake);
+
+        assertEquals(10, arena.snake.getPosition().getX());
+        assertEquals(6, arena.snake.getPosition().getY());
+
+        arena.moveSnake(new Position(30, 16), arena.snake);
+        arena.moveSnake(new Position(30, 15), arena.snake);
+
+        assertEquals(10, arena.snake.getPosition().getX());
+        assertEquals(4, arena.snake.getPosition().getY());
     }
 }

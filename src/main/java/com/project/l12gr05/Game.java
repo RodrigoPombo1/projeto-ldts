@@ -21,18 +21,18 @@ public class Game {
         KeyType key_keytype = key.getKeyType();
         if (key_keytype == KeyType.Character) {
             switch(key.getCharacter()) {
-                case 'w' -> arena.moveSnake(arena.moveUp());
-                case 's' -> arena.moveSnake(arena.moveDown());
-                case 'd' -> arena.moveSnake(arena.moveRight());
-                case 'a' -> arena.moveSnake(arena.moveLeft());
+                case 'w' -> arena.moveSnake(arena.moveUp(arena.snake), arena.snake);
+                case 's' -> arena.moveSnake(arena.moveDown(arena.snake), arena.snake);
+                case 'd' -> arena.moveSnake(arena.moveRight(arena.snake), arena.snake);
+                case 'a' -> arena.moveSnake(arena.moveLeft(arena.snake), arena.snake);
             }
         }
         else {
             switch (key_keytype) {
-                case ArrowUp -> arena.moveSnake(arena.moveUp());
-                case ArrowDown -> arena.moveSnake(arena.moveDown());
-                case ArrowRight -> arena.moveSnake(arena.moveRight());
-                case ArrowLeft -> arena.moveSnake(arena.moveLeft());
+                case ArrowUp -> arena.moveSnake(arena.moveUp(arena.snake), arena.snake);
+                case ArrowDown -> arena.moveSnake(arena.moveDown(arena.snake), arena.snake);
+                case ArrowRight -> arena.moveSnake(arena.moveRight(arena.snake), arena.snake);
+                case ArrowLeft -> arena.moveSnake(arena.moveLeft(arena.snake), arena.snake);
             }
         }
     }

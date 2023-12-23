@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Arena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/l12gr05/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/l12gr05/ArenaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/l12gr05/ArenaTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,20 +76,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.Tests in 'com.project.l12gr05'">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.project.l12gr05.Application" />
-      <module name="project-l12gr05.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.project.l12gr05.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Gradle.ArenaTest.moveSnakeIntoSecondTeleporterTest">
     <configuration name="ArenaTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -113,7 +101,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="MonsterTest.MonsterMoveCase0" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ArenaTest.moveSnakeIntoFirstTeleporterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -126,7 +114,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.l12gr05.MonsterTest.MonsterMoveCase0&quot;" />
+            <option value="&quot;com.project.l12gr05.ArenaTest.moveSnakeIntoFirstTeleporterTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -137,7 +125,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'com.project.l12gr05'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ArenaTest.moveSnakeIntoSecondTeleporterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -150,7 +138,31 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.l12gr05.*&quot;" />
+            <option value="&quot;com.project.l12gr05.ArenaTest.moveSnakeIntoSecondTeleporterTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ArenaTest.moveSnakeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.project.l12gr05.ArenaTest.moveSnakeTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -185,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'com.project.l12gr05'" />
+        <item itemvalue="Gradle.ArenaTest.moveSnakeIntoSecondTeleporterTest" />
+        <item itemvalue="Gradle.ArenaTest.moveSnakeIntoFirstTeleporterTest" />
         <item itemvalue="Gradle.ArenaTest" />
+        <item itemvalue="Gradle.ArenaTest.moveSnakeTest" />
         <item itemvalue="Gradle.Tests in 'project-l12gr05.test'" />
-        <item itemvalue="Application.Application" />
-        <item itemvalue="Gradle.MonsterTest.MonsterMoveCase0" />
       </list>
     </recent_temporary>
   </component>
@@ -223,6 +235,7 @@
     </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/project_l12gr05$Tests_in__project_l12gr05_test_.ic" NAME="Tests in 'project-l12gr05.test' Coverage Results" MODIFIED="1703297440088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/project_l12gr05$SnakeTest.ic" NAME="SnakeTest Coverage Results" MODIFIED="1703194412772" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
